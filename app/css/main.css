@@ -44,7 +44,7 @@
 }
 
 .works-image-c1 {
-  background-image: url("../img/backgrounds/1080x1440-c1-bg-works.jpg");
+  background-image: url("/app/img/new-geospatial-strategy.png");
 }
 
 .contact-image-c1 {
@@ -269,14 +269,7 @@ img {
 
 .bg-dark {
   background-color: #161616;
-}
 
-.bg-image-bottom {
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  -moz-background-size: cover;
-       background-size: cover;
-  background-image: url("../img/svg/bg-lines-about.svg");
 }
 
 .text-align-left {
@@ -355,6 +348,7 @@ img {
 
 .rotate-object img {
   animation: rotate 4s linear infinite;
+
 }
 
 
@@ -372,7 +366,8 @@ body .main .main__socials,
 body .main .main__dataline {
   opacity: 0;
 }
-body .main .main__headline .loading-el {
+body .main .main__
+.loading-el {
   opacity: 0;
   -webkit-transform: translateY(30px);
      -moz-transform: translateY(30px);
@@ -398,6 +393,7 @@ body.loaded .main .main__media {
   -moz-transition: transform 0.6s, opacity 0.6s ease-in-out, -moz-transform 0.6s;
   transition: transform 0.6s, opacity 0.6s ease-in-out;
   transition: transform 0.6s, opacity 0.6s ease-in-out, -webkit-transform 0.6s, -moz-transform 0.6s;
+  
 }
 body.loaded .main .main__headline .loading-el {
   opacity: 1;
@@ -454,6 +450,7 @@ body.loaded .rotate-object {
   -moz-transition: opacity 0.8s 1.4s;
   transition: opacity 0.8s 1.4s;
 }
+
 
 /* ------------------------------------------------*/
 /* Loading Animation End */
@@ -741,7 +738,7 @@ h3.light {
 h4 {
   font: normal 400 2.4rem/1.2 "IBMPlexSans", serif;
   letter-spacing: -0.1rem;
-  color: #1a1a1a;
+  color: #fff;
 }
 h4 small {
   display: block;
@@ -749,7 +746,7 @@ h4 small {
   text-transform: uppercase;
   letter-spacing: 0.06rem;
   margin-top: 0.2rem;
-  color: #444444;
+  color: #fff;
 }
 h4.light {
   color: #ffffff;
@@ -830,7 +827,7 @@ p.additional-text {
 
 .popup__text {
   font: normal 300 1.4rem/1.7 "Roboto", sans-serif;
-  color: #444444;
+  color: #fff;
   margin-top: 2rem;
 }
 .popup__text.light {
@@ -902,7 +899,7 @@ blockquote cite {
   font: normal 400 1.3rem/1.2 "IBMPlexSans", serif;
   text-transform: uppercase;
   letter-spacing: 0.06rem;
-  color: #444444;
+  color: #fff;
   margin-top: 3rem;
 }
 blockquote cite span {
@@ -1584,11 +1581,12 @@ form .inputs-description {
 
 .logo {
   position: relative;
-  padding: 1rem 0;
+  padding: 1rem 2;
   width: auto;
 }
 .logo img {
-  width: auto;
+  width: 200px;
+  height: 120px;
 }
 
 .main__headline {
@@ -1659,12 +1657,28 @@ form .inputs-description {
   position: relative;
   height: 100vh;
   min-height: 600px;
-  background-color: #606060;
+  background-image:url("/app/img/f1f625361f6bfa00438e6f255040a7d6.png");
   background-repeat: no-repeat;
   background-position: center center;
   -moz-background-size: cover;
        background-size: cover;
 }
+
+.main__media .img-bg {
+  /* background-image: url("/app/img/f1f625361f6bfa00438e6f255040a7d6.png");
+  position:absolute;
+  max-width: 100%;
+max-height: 50% */
+}
+.mainmedia__image {
+  background-image: url(/picture.jpeg);
+  position:absolute;
+  max-width: 500%;
+max-height: 400%;
+border-radius: 50px;
+
+}
+
 @media only screen and (min-width: 1200px) {
   .main__media {
     height: 100%;
@@ -1763,7 +1777,6 @@ form .inputs-description {
   background-position: bottom center;
   -moz-background-size: cover;
        background-size: cover;
-  background-image: url("../img/svg/bg-lines-menu.svg");
   overflow-y: auto;
   z-index: 10;
   opacity: 0;
@@ -2234,7 +2247,12 @@ form .inputs-description {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: pink;
+  background-image: url(/WhatsApp\ Image\ 2024-04-03\ at\ 11.36.16\ AM.jpeg);
+  background-repeat: no-repeat;
+  /* background-repeat: no-repeat;
+  background-position: center center;
+  -moz-background-size: cover;
+       background-size: cover; */
   z-index: 3;
   opacity: 0;
   visibility: hidden;
@@ -2379,7 +2397,7 @@ form .inputs-description {
   width: 80%;
   height: -moz-calc(100% - 18rem);
   height: calc(100% - 18rem);
-  background-color: pink;
+  /* background-color: pink; */
 }
 @media only screen and (min-width: 1200px) {
   .media__container {
@@ -2409,6 +2427,7 @@ form .inputs-description {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  
 }
 
 .media__image {
@@ -2509,6 +2528,10 @@ form .inputs-description {
   position: relative;
   text-align: left;
   margin-bottom: 5rem;
+}
+.bullet{
+  margin-right: 20px;
+  font-size: 20px;
 }
 .features__item:last-of-type {
   margin-bottom: 0;

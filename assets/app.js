@@ -195,6 +195,35 @@ $(function() {
       worksClose.addClass('is-scaled-up');
     }, 1200);
   });
+    // Initialize and add the map
+    function initMap() {
+        // Center coordinates for the map
+        var center = { lat: -1.2921, lng: 36.8219 };
+
+        // Create the map
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 7,
+            center: center
+        });
+
+        // Add markers for Kericho, Karen, and Kilimani
+        var locations = [
+            { lat: -0.3667, lng: 35.2833, name: 'Kericho' },
+            { lat: -1.3133, lng: 36.7181, name: 'Karen' },
+            { lat: -1.2916, lng: 36.7922, name: 'Kilimani' }
+        ];
+
+        // Create markers and add them to the map
+        locations.forEach(function (location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: location.name
+            });
+        });
+    }
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
   // Works Section Close
   worksClose.on('click', function(event){
     event.preventDefault();
