@@ -364,40 +364,6 @@ $(function() {
   // --------------------------------------------- //
   // Mailchimp Notify Form Start
   // --------------------------------------------- //
-  $('.notify-form').ajaxChimp({
-    callback: mailchimpCallback,
-    url: 'https://besaba.us10.list-manage.com/subscribe/post?u=e8d650c0df90e716c22ae4778&amp;id=54a7906900'
-  });
-
-  function mailchimpCallback(resp) {
-    if(resp.result === 'success') {
-      $('.notify').find('.form').addClass('is-hidden');
-      $('.notify').find('.subscription-ok').addClass('is-visible');
-      setTimeout(function() {
-        // Done Functions
-        $('.notify').find('.subscription-ok').removeClass('is-visible');
-        $('.notify').find('.form').delay(300).removeClass('is-hidden');
-        $('.notify-form').trigger("reset");
-      }, 5000);
-    } else if(resp.result === 'error') {
-      $('.notify').find('.form').addClass('is-hidden');
-      $('.notify').find('.subscription-error').addClass('is-visible');
-      setTimeout(function() {
-        // Done Functions
-        $('.notify').find('.subscription-error').removeClass('is-visible');
-        $('.notify').find('.form').delay(300).removeClass('is-hidden');
-        $('.notify-form').trigger("reset");
-      }, 5000);
-    }
-  };
-  // --------------------------------------------- //
-  // Mailchimp Notify Form End
-  // --------------------------------------------- //
-
-  // --------------------------------------------- //
-  // Contact Form Start
-  // --------------------------------------------- //
-
   $("#contact-form").submit(function(event) {
     event.preventDefault(); 
     var th = $(this);
@@ -405,15 +371,32 @@ $(function() {
     var company = th.find('input[name="Company"]').val();
     var phone = th.find('input[name="Phone"]').val();
     var message = th.find('textarea[name="Message"]').val();
-    var mailtoLink = `mailto:barry@mizegerd.agency?subject=${encodeURIComponent(name)} - ${encodeURIComponent(company)}&body=Phone number : ${encodeURIComponent(phone)}%0A%0A${encodeURIComponent(message)}`;
-    window.location.href = mailtoLink;
-    $('.contact').find('.form').addClass('is-hidden');
-    $('.contact').find('.reply-group').addClass('is-visible');
-    setTimeout(function() {
-        $('.contact').find('.reply-group').removeClass('is-visible');
-        $('.contact').find('.form').delay(300).removeClass('is-hidden');
-        th.trigger("reset");
-    }, 5000);
+    
+    // Send data to server-side PHP script
+    $.ajax({
+        url: 'send_email.php', 
+        type: 'POST',
+        data: {
+            name: name,
+            company: company,
+            phone: phone,
+            message: message
+        },
+        success: function(response) {
+            // Handle success
+            $('.contact').find('.form').addClass('is-hidden');
+            $('.contact').find('.reply-group').addClass('is-visible');
+            setTimeout(function() {
+                $('.contact').find('.reply-group').removeClass('is-visible');
+                $('.contact').find('.form').delay(300).removeClass('is-hidden');
+                th.trigger("reset");
+            }, 5000);
+        },
+        error: function(xhr, status, error) {
+            // Handle error
+            console.error(xhr.responseText);
+        }
+    });
 });
 
   // --------------------------------------------- //
